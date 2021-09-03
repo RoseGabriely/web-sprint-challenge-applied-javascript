@@ -1,4 +1,7 @@
+import axios from "axios";
+
 const Card = (article) => {
+  // creating a card component that takes in an article object with headline, authorPhoto and authorName properties, and uses the properties to create a card for the article
   let card = document.createElement("div");
   card.className = "card";
 
@@ -28,14 +31,22 @@ const Card = (article) => {
 };
 
 const cardAppender = (selector) => {
-  // TASK 6
-  // ---------------------
-  // Implement this function that takes a css selector as its only argument.
-  // It should obtain articles from this endpoint: `http://localhost:5000/api/articles` (test it in Postman/HTTPie!).
-  // However, the articles do not come organized in a single, neat array. Inspect the response closely!
-  // Create a card from each and every article object in the response, using the Card component.
-  // Append each card to the element in the DOM that matches the selector passed to the function.
-  //
+  // takes in article data and runs it through the card function to create component for each received article
+  axios
+    .get("http://localhost:5000/api/articles")
+    .then((res) => {
+      let articlesDictionary = res.data.articles;
+
+      let classSelector = document.querySelector(`${selector}`);
+      Object.entries(articlesDictionary).forEach(([key, articleArray]) => {
+        articleArray.forEach((article) => {
+          classSelector.appendChild(Card(article));
+        });
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
 
 export { Card, cardAppender };
