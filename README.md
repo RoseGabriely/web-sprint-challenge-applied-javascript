@@ -65,7 +65,12 @@ In meeting the minimum viable product (MVP) specifications listed below, your pr
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. What is the DOM?
+   The DOM is the document object model which can access and manipulate HTML/XML documents.
 2. What is an event?
+   An event is something that happens such as a mouse click or a hover on a webpage. These events can be used to trigger code to execute.
 3. What is an event listener?
+   An event listener listens for a certain event such as a key press or a mouse click, and then uses a callback function to make something happen upon the event firing.
 4. Why would we convert a NodeList into an Array?
+   Converting a NodeList into an array allows us to use array methods on it outside of forEach().
 5. What is a component?
+   A component is a block of code that assembles a reusable item such as a button or a card that can have data passed into it to automatically create new identical blocks of code, but with whatever data is passed into it.
